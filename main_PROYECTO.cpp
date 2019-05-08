@@ -25,13 +25,19 @@ DWORD dwElapsedTime = 0;
 int juego;
 int juego1=0;
 int mundo; 
-float arriba = 0.0;
 
-float  arribaInc = 0.0;
+float arriba = 0.0;
+float  arribaInc = 0;
 float horizontal = 0;
-float vertical = 1.24;
-float profundidad = -25;
+float vertical = 0;
+float profundidad = 0;
 float giro = 0;
+float giroInc = 0;
+float giro2 = 0;
+float horizontal2 = 0;
+float vertical2 = 1.24;
+float descenso = -25;
+float sigue = 0;
 
 
 typedef struct _frame
@@ -54,18 +60,29 @@ typedef struct _frame
 
 	float giroMonito;
 	float giroMonitoInc;
-	float  arriba=0.0;
-	float arribaInc = 0.0;
 
+	//montaña rusa
+	float arriba = 0;
 	float horizontal = 0;
 	float vertical = 1.24;
 	float profundidad = -25;
 	float giro = 0;
+	float giro2 = 0;
+	float horizontal2 = 0;
+	float vertical2 = 1.24;
+	float descenso = -25;
+	float sigue = 0;
 
+	float arribaInc = 0.0;
 	float horizontalInc = 0;
 	float verticalInc = 0;
 	float profundidadInc = 0;
 	float giroInc = 0;
+	float giro2Inc = 0;
+	float horizontal2Inc = 0;
+	float vertical2Inc = 0;
+	float descensoInc = 0;
+	float sigueInc = 0;
 
 
 }FRAME;
@@ -599,101 +616,89 @@ void montana(void) {
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -2);
-
+	glRotatef(0, 0, 1, 0);
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -3);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -4);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -5);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -6);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -7);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -8);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -9);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -10);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -11);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -12);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -13);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -14);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(26.3, 1, -15);
-
 	glScalef(.9, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
+
 	//hacia atras recto izquierda
 	glPushMatrix();
 	glTranslatef(25, 1, -17.56);
@@ -753,10 +758,6 @@ void montana(void) {
 	glPopMatrix();
 
 
-
-
-
-
 	//rieles largos
 	glPushMatrix();
 	glTranslatef(0, 1, .4);
@@ -783,6 +784,7 @@ void montana(void) {
 	glScalef(15, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
 	glPopMatrix();
+
 	//rieles de atras
 	glPushMatrix();
 	glTranslatef(21.5, 1, -18);
@@ -887,6 +889,7 @@ void montana(void) {
 				  //descenso
 
 	glPushMatrix();
+
 	glPushMatrix();
 	glTranslatef(2, 8.96, -18);
 	glRotatef(60, 0, 0, 1);
@@ -906,7 +909,6 @@ void montana(void) {
 	glRotatef(35, 0, 0, 1);
 	glScalef(1, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
-
 	glPopMatrix();
 
 	glPushMatrix();
@@ -914,21 +916,18 @@ void montana(void) {
 	glRotatef(35, 0, 0, 1);
 	glScalef(1, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
-
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(7.46, 16.9, -17.15);
 	glScalef(.8, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
-
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(7.46, 16.9, -18);
 	glScalef(.8, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
-
 	glPopMatrix();
 
 	glPushMatrix();
@@ -936,7 +935,6 @@ void montana(void) {
 	glTranslatef(-2.75, 18.4, -17.15);
 	glScalef(1.1, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
-
 	glPopMatrix();
 
 	glPushMatrix();
@@ -944,7 +942,6 @@ void montana(void) {
 	glTranslatef(-2.75, 18.4, -18);
 	glScalef(1.1, .1, .1);
 	fig11.prisma3(text9.GLindex, text9.GLindex);
-
 	glPopMatrix();
 
 	glPushMatrix();
@@ -1667,7 +1664,6 @@ void carrito(void) {
 	glPushMatrix();
 
 
-
 	glPopMatrix();
 	glPushMatrix();
 	glEnable(GL_ALPHA_TEST);
@@ -2121,7 +2117,7 @@ void parque()
 	fig3.prisma2(text4.GLindex, 0);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	                                                 //AREA PARA LA MONTA�A RUSA 
+	                                                 //AREA PARA LA MONTAÑA RUSA 
 	glPushMatrix();
 	glTranslatef(-34, 0.1, 40);
 	glScalef(25, 0.1, 25);
@@ -2321,7 +2317,7 @@ glPushMatrix();
 glPopMatrix();
 }
 
-void ba�os(void)
+void baños(void)
 {
 	glTranslatef(0, 0.1, 20);
 	glRotatef(180,0,1,0);
@@ -2585,19 +2581,26 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	text25.ReleaseImage();
 	
 	//NEW////////////////////////////////////////////
+	
+	//ida
 	KeyFrame[0].arriba = 0;
 	KeyFrame[0].horizontal = 0;
 	KeyFrame[0].vertical = 1.4;
 	KeyFrame[0].profundidad = -25;
 	KeyFrame[0].giro = 0;
+	KeyFrame[0].sigue = 0;
+	KeyFrame[0].horizontal2 = 0;
+	KeyFrame[0].vertical2 = 0;
+	KeyFrame[0].descenso = 0;
+	KeyFrame[0].giro2 = 0;
 
-
-
-	KeyFrame[1].arriba = -8;
+	//regreso
+	KeyFrame[1].arriba = 0;
 	KeyFrame[1].horizontal = 26.2;
 	KeyFrame[1].vertical = 1.4;
 	KeyFrame[1].profundidad = -25;
 	KeyFrame[1].giro = 0;
+	
 
 	KeyFrame[2].arriba = 0;
 	KeyFrame[2].horizontal = 26.2;
@@ -2605,10 +2608,63 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	KeyFrame[2].profundidad = -42;
 	KeyFrame[2].giro = 0;
 
-	KeyFrame[3].horizontal = 20;
+	
+	//antes de subir
+	KeyFrame[3].arriba = 0; 
+	KeyFrame[3].horizontal = 18;
 	KeyFrame[3].vertical = 1.4;
 	KeyFrame[3].profundidad = -42;
 	KeyFrame[3].giro = 0;
+	
+	
+	//sube
+	KeyFrame[4].arriba = 0;
+	KeyFrame[4].horizontal = 9;
+	KeyFrame[4].vertical = 17;
+	KeyFrame[4].profundidad = -42;
+	KeyFrame[4].giro = 0;
+	
+
+	//prepara caerse
+	KeyFrame[5].arriba = 0;
+	KeyFrame[5].horizontal = 7;
+	KeyFrame[5].vertical = 17;
+	KeyFrame[5].profundidad = -42;
+	KeyFrame[5].giro = 0;
+	
+
+	//baja
+	KeyFrame[6].arriba = 0;
+	KeyFrame[6].horizontal = -3;
+	KeyFrame[6].vertical = 1.4;
+	KeyFrame[6].profundidad = -42;
+	KeyFrame[6].giro = 0;
+	
+
+	//sigue despues de bajar
+	KeyFrame[7].arriba = 0;
+	KeyFrame[7].horizontal = -26.2;
+	KeyFrame[7].vertical = 1.4;
+	KeyFrame[7].profundidad = -42;
+	KeyFrame[7].giro = 0;
+
+	//regreso izquierda
+	KeyFrame[8].arriba = 0;
+	KeyFrame[8].horizontal = -26.2;
+	KeyFrame[8].vertical = 1.4;
+	KeyFrame[8].profundidad = -25;
+	KeyFrame[8].giro = 0;
+
+	//va a punto inicial
+	KeyFrame[9].arriba = 0;
+	KeyFrame[9].horizontal = 0;
+	KeyFrame[9].vertical = 1.4;
+	KeyFrame[9].profundidad = -25;
+	KeyFrame[9].giro = 5;
+	
+
+
+
 	
 
 
@@ -2699,7 +2755,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 	glColor3f(1.0, 1.0, 1.0);
 
-//inicia monta�a rusa
+//inicia montaña rusa
 glPushMatrix();
 
 
@@ -2707,7 +2763,7 @@ tienda1();
 
 tienda2();
 
-ba�os();
+baños();
 
 tienda3();
 
@@ -2803,6 +2859,11 @@ void animacion()
 				KeyFrame[playIndex].verticalInc = (KeyFrame[playIndex + 1].vertical - KeyFrame[playIndex].vertical) / i_max_steps;
 				KeyFrame[playIndex].profundidadInc = (KeyFrame[playIndex + 1].profundidad- KeyFrame[playIndex].profundidad) / i_max_steps;
 				KeyFrame[playIndex].giroInc = (KeyFrame[playIndex + 1].giro - KeyFrame[playIndex].giro) / i_max_steps;
+				KeyFrame[playIndex].descensoInc = (KeyFrame[playIndex + 1].descenso - KeyFrame[playIndex].descenso) / i_max_steps;
+				KeyFrame[playIndex].horizontal2Inc = (KeyFrame[playIndex + 1].horizontal2 - KeyFrame[playIndex].horizontal2) / i_max_steps;
+				KeyFrame[playIndex].vertical2Inc = (KeyFrame[playIndex + 1].vertical2 - KeyFrame[playIndex].vertical2) / i_max_steps;
+				KeyFrame[playIndex].sigueInc = (KeyFrame[playIndex + 1].sigue - KeyFrame[playIndex].sigue) / i_max_steps;
+				KeyFrame[playIndex].giro2Inc = (KeyFrame[playIndex + 1].giro2 - KeyFrame[playIndex].giro2) / i_max_steps;
 
 			}
 		}
@@ -2815,7 +2876,11 @@ void animacion()
 			vertical += KeyFrame[playIndex].verticalInc;
 			profundidad += KeyFrame[playIndex].profundidadInc;
 			giro += KeyFrame[playIndex].giroInc;
-
+			descenso += KeyFrame[playIndex].descensoInc;
+			horizontal2 += KeyFrame[playIndex].horizontal2Inc;
+			vertical2 += KeyFrame[playIndex].vertical2Inc;
+			sigue += KeyFrame[playIndex].sigueInc;
+			giro2 += KeyFrame[playIndex].giro2Inc;
 
 
 
@@ -2899,8 +2964,13 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 			arriba = KeyFrame[0].arriba;
 			horizontal = KeyFrame[0].horizontal;
 			vertical = KeyFrame[0].vertical;
-		     profundidad = KeyFrame[0].profundidad;
+		    profundidad = KeyFrame[0].profundidad;
 			giro = KeyFrame[0].giro;
+			descenso = KeyFrame[0].descenso;
+			horizontal2 = KeyFrame[0].horizontal2;
+			vertical2 = KeyFrame[0].vertical2;
+			sigue = KeyFrame[0].sigue;
+			giro2 = KeyFrame[0].giro2;
 			
 
 			//First Interpolation
@@ -2910,8 +2980,12 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 			KeyFrame[playIndex].horizontalInc = (KeyFrame[playIndex + 1].horizontal - KeyFrame[playIndex].horizontal) / i_max_steps;
 			KeyFrame[playIndex].verticalInc = (KeyFrame[playIndex + 1].vertical - KeyFrame[playIndex].vertical) / i_max_steps;
 			KeyFrame[playIndex].profundidadInc = (KeyFrame[playIndex + 1].profundidad - KeyFrame[playIndex].profundidad) / i_max_steps;
-
 			KeyFrame[playIndex].giroInc = (KeyFrame[playIndex + 1].giro - KeyFrame[playIndex].giro) / i_max_steps;
+			KeyFrame[playIndex].descensoInc = (KeyFrame[playIndex + 1].descenso - KeyFrame[playIndex].descenso) / i_max_steps;
+			KeyFrame[playIndex].horizontal2Inc = (KeyFrame[playIndex + 1].horizontal2 - KeyFrame[playIndex].horizontal2) / i_max_steps;
+			KeyFrame[playIndex].vertical2Inc = (KeyFrame[playIndex + 1].vertical2 - KeyFrame[playIndex].vertical2) / i_max_steps;
+			KeyFrame[playIndex].sigueInc = (KeyFrame[playIndex + 1].sigue - KeyFrame[playIndex].sigue) / i_max_steps;
+			KeyFrame[playIndex].giro2Inc = (KeyFrame[playIndex + 1].giro2 - KeyFrame[playIndex].giro2) / i_max_steps;
 			//KeyFrame[playIndex].tije2Inc = (KeyFrame[playIndex + 1].tije2 - KeyFrame[playIndex].tije2) / i_max_steps;
 
 			play = true;
@@ -3076,14 +3150,14 @@ int main(int argc, char** argv)   // Main Function
 	int submenu;
 	glutInit(&argc, argv); // Inicializamos OpenGL
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Doble )
-	glutInitWindowSize(800, 800);	// Tama�o de la Ventana
+	glutInitWindowSize(800, 800);	// Tamaño de la Ventana
 	glutInitWindowPosition(0, 0);	//Posicion de la Ventana
 	glutCreateWindow("Proyecto feria"); // Nombre de la Ventana
 									 //glutFullScreen     ( );         // Full Screen
 	InitGL();						// Parametros iniciales de la aplicacion
-	glutDisplayFunc(display);  //Indicamos a Glut funci�n de dibujo
-	glutReshapeFunc(reshape);	//Indicamos a Glut funci�n en caso de cambio de tamano
-	glutKeyboardFunc(keyboard);	//Indicamos a Glut funci�n de manejo de teclado
+	glutDisplayFunc(display);  //Indicamos a Glut función de dibujo
+	glutReshapeFunc(reshape);	//Indicamos a Glut función en caso de cambio de tamano
+	glutKeyboardFunc(keyboard);	//Indicamos a Glut función de manejo de teclado
 	glutSpecialFunc(arrow_keys);	//Otras
 	glutIdleFunc(animacion);
 
