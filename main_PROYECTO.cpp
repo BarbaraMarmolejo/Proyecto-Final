@@ -23,8 +23,8 @@ DWORD dwCurrentTime = 0;
 DWORD dwLastUpdateTime = 0;
 DWORD dwElapsedTime = 0;
 int juego;
-int juego1=0;
-int mundo; 
+int juego1 = 0;
+int mundo;
 
 float arriba = 0.0;
 float  arribaInc = 0;
@@ -150,7 +150,7 @@ CTexture text24;
 CTexture text25;
 CTexture text26;
 
-				//NEW///////////////////////////7
+//NEW///////////////////////////7
 
 
 float abrirPuerta = 0;
@@ -1741,7 +1741,7 @@ void parque()
 	fig3.prisma2(text4.GLindex, 0);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	
+
 	glPushMatrix();
 	glTranslatef(0, 0.1, 4);
 	glScalef(4, 0.1, 4);
@@ -1765,7 +1765,7 @@ void parque()
 	fig3.prisma2(text4.GLindex, 0);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	
+
 	//camino 2 i<quierda 
 
 	glPushMatrix();
@@ -1775,7 +1775,7 @@ void parque()
 	fig3.prisma2(text4.GLindex, 0);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	
+
 	glPushMatrix();
 	glTranslatef(8, 0.1, 12);
 	glScalef(4, 0.1, 4);
@@ -1908,9 +1908,9 @@ void parque()
 	fig3.prisma2(text4.GLindex, 0);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	
+
 	//camino lateral izquierdo 
-    glPushMatrix();
+	glPushMatrix();
 	glTranslatef(16, 0.1, 16);
 	glScalef(4, 0.1, 4);
 	glDisable(GL_LIGHTING);
@@ -2117,7 +2117,7 @@ void parque()
 	fig3.prisma2(text4.GLindex, 0);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	                                                 //AREA PARA LA MONTAÑA RUSA 
+	//AREA PARA LA MONTAÑA RUSA 
 	glPushMatrix();
 	glTranslatef(-34, 0.1, 40);
 	glScalef(25, 0.1, 25);
@@ -2125,10 +2125,10 @@ void parque()
 	fig3.prisma2(text4.GLindex, 0);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	                                                  //AREA PARA JUEGO 1
-	
+	//AREA PARA JUEGO 1
 
-	//CAMINO DIVISORIO JUEGO 4 Y 5
+
+//CAMINO DIVISORIO JUEGO 4 Y 5
 
 	glPushMatrix();
 	glTranslatef(24, 0.1, 30);
@@ -2138,7 +2138,7 @@ void parque()
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
 
-	
+
 	glPushMatrix();
 	glTranslatef(28, 0.1, 30);
 	glScalef(4, 0.1, 4);
@@ -2172,7 +2172,7 @@ void parque()
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
 
-	                                                      //AREA JUEGO 4
+	//AREA JUEGO 4
 
 	glPushMatrix();
 	glTranslatef(24, 0.1, 20);
@@ -2184,7 +2184,7 @@ void parque()
 
 
 
-	
+
 }
 
 void tienda1(void)
@@ -2208,7 +2208,7 @@ void tienda1(void)
 	fig17.prisma2(text19.GLindex, text19.GLindex);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-	
+
 	//fachada
 	glPushMatrix();
 	glTranslatef(13, 2.5, 20);
@@ -2247,13 +2247,13 @@ void tienda1(void)
 	glDisable(GL_LIGHTING);
 	fig20.prisma3(text21.GLindex, 0);
 	glEnable(GL_LIGHTING);
-	glPopMatrix(); 
+	glPopMatrix();
 }
 
 void tienda2(void)
 {
-	glTranslatef(0,0.1,20);
-glPushMatrix();
+	glTranslatef(0, 0.1, 20);
+	glPushMatrix();
 	//piso 
 	glPushMatrix();
 	glTranslatef(8, 0.1, 20);
@@ -2314,13 +2314,13 @@ glPushMatrix();
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
 
-glPopMatrix();
+	glPopMatrix();
 }
 
 void baños(void)
 {
 	glTranslatef(0, 0.1, 20);
-	glRotatef(180,0,1,0);
+	glRotatef(180, 0, 1, 0);
 	glPushMatrix();
 	//piso 
 	glPushMatrix();
@@ -2453,6 +2453,99 @@ void tienda3(void)
 	glPopMatrix();
 }
 
+void monito()
+{
+	//glNewList(1, GL_COMPILE);
+	glPushMatrix();//Pecho
+	glScalef(0.5, 0.5, 0.5);
+	fig7.prisma(2.0, 2.0, 1, text2.GLindex);
+
+	glPushMatrix();//Cuello
+	glTranslatef(0, 1.0, 0.0);
+	fig7.cilindro(0.25, 0.25, 15, 0);
+	glPushMatrix();//Cabeza
+	glTranslatef(0, 1.0, 0);
+	fig7.esfera(0.75, 15, 15, 0);
+	glPopMatrix();
+	glPopMatrix();
+
+	glPushMatrix(); //Brazo derecho-->
+	glTranslatef(1.25, 0.65, 0);
+	fig7.esfera(0.5, 12, 12, 0);
+	glPushMatrix();
+	glTranslatef(0.25, 0, 0);
+	glRotatef(-45, 0, 1, 0);
+	glTranslatef(0.75, 0, 0);
+	fig7.prisma(0.7, 1.5, 0.7, 0);
+	glPopMatrix();
+	glPopMatrix();
+
+	glPushMatrix(); //Brazo izquierdo <--
+	glTranslatef(-1.25, 0.65, 0);
+	fig7.esfera(0.5, 12, 12, 0);
+	glPushMatrix();
+	glTranslatef(-0.25, 0, 0);
+	glRotatef(45, 0, 1, 0);
+	glRotatef(25, 0, 0, 1);
+	glRotatef(25, 1, 0, 0);
+	glTranslatef(-0.75, 0, 0);
+	fig7.prisma(0.7, 1.5, 0.7, 0);
+	glPopMatrix();
+	glPopMatrix();
+
+	glPushMatrix();//Cintura
+	glColor3f(0, 0, 1);
+	glTranslatef(0, -1.5, 0);
+	fig7.prisma(1, 2, 1, 0);
+
+	glPushMatrix(); //Pie Derecho -->
+	glTranslatef(0.75, -0.5, 0);
+	glRotatef(-15, 1, 0, 0);
+	glTranslatef(0, -0.5, 0);
+	fig7.prisma(1.0, 0.5, 1, 0);
+
+	glPushMatrix();
+	glTranslatef(0, -0.5, 0);
+	glRotatef(15, 1, 0, 0);
+	glTranslatef(0, -0.75, 0);
+	fig7.prisma(1.5, 0.5, 1, 0);
+
+	glPushMatrix();
+	glTranslatef(0, -0.75, 0.3);
+	fig7.prisma(0.2, 1.2, 1.5, 0);
+	glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
+
+
+	glPushMatrix(); //Pie Izquierdo -->
+	glTranslatef(-0.75, -0.5, 0);
+	glRotatef(-5, 1, 0, 0);
+	glTranslatef(0, -0.5, 0);
+	fig7.prisma(1.0, 0.5, 1, 0);
+
+	glPushMatrix();
+	glTranslatef(0, -0.5, 0);
+	glRotatef(15 + rotRodIzq, 1, 0, 0);
+	glTranslatef(0, -0.75, 0);
+	fig7.prisma(1.5, 0.5, 1, 0);
+
+	glPushMatrix();
+	glTranslatef(0, -0.75, 0.3);
+	fig7.prisma(0.2, 1.2, 1.5, 0);
+	glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
+
+
+	glPopMatrix();
+
+
+	glColor3f(1, 1, 1);
+	glPopMatrix();
+	//glEndList();
+}
+
 
 
 GLuint createDL()
@@ -2467,7 +2560,7 @@ GLuint createDL()
 	// call the function that contains 
 	// the rendering commands
 	parque();
-	
+
 	//monito();
 	// endList
 	glEndList();
@@ -2530,7 +2623,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	text9.LoadTGA("texturas/skyscreamer/metalazul.tga");
 	text9.BuildGLTexture();
 	text9.ReleaseImage();
-	 
+
 	text10.LoadTGA("mundo.tga");
 	text10.BuildGLTexture();
 	text10.ReleaseImage();
@@ -2551,7 +2644,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	text18.BuildGLTexture();
 	text18.ReleaseImage();
 
-	
+
 	text19.LoadTGA("ladrillo.tga");
 	text19.BuildGLTexture();
 	text19.ReleaseImage();
@@ -2579,9 +2672,9 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	text25.LoadTGA("trans.tga");
 	text25.BuildGLTexture();
 	text25.ReleaseImage();
-	
+
 	//NEW////////////////////////////////////////////
-	
+
 	//ida
 	KeyFrame[0].arriba = 0;
 	KeyFrame[0].horizontal = 0;
@@ -2600,7 +2693,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	KeyFrame[1].vertical = 1.4;
 	KeyFrame[1].profundidad = -25;
 	KeyFrame[1].giro = 0;
-	
+
 
 	KeyFrame[2].arriba = 0;
 	KeyFrame[2].horizontal = 26.2;
@@ -2608,22 +2701,22 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	KeyFrame[2].profundidad = -42;
 	KeyFrame[2].giro = 0;
 
-	
+
 	//antes de subir
-	KeyFrame[3].arriba = 0; 
+	KeyFrame[3].arriba = 0;
 	KeyFrame[3].horizontal = 18;
 	KeyFrame[3].vertical = 1.4;
 	KeyFrame[3].profundidad = -42;
 	KeyFrame[3].giro = 0;
-	
-	
+
+
 	//sube
 	KeyFrame[4].arriba = 0;
 	KeyFrame[4].horizontal = 9;
 	KeyFrame[4].vertical = 17;
 	KeyFrame[4].profundidad = -42;
 	KeyFrame[4].giro = 0;
-	
+
 
 	//prepara caerse
 	KeyFrame[5].arriba = 0;
@@ -2631,7 +2724,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	KeyFrame[5].vertical = 17;
 	KeyFrame[5].profundidad = -42;
 	KeyFrame[5].giro = 0;
-	
+
 
 	//baja
 	KeyFrame[6].arriba = 0;
@@ -2639,7 +2732,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	KeyFrame[6].vertical = 1.4;
 	KeyFrame[6].profundidad = -42;
 	KeyFrame[6].giro = 0;
-	
+
 
 	//sigue despues de bajar
 	KeyFrame[7].arriba = 0;
@@ -2661,11 +2754,11 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	KeyFrame[9].vertical = 1.4;
 	KeyFrame[9].profundidad = -25;
 	KeyFrame[9].giro = 5;
-	
 
 
 
-	
+
+
 
 
 	//END NEW//////////////////////////////
@@ -2676,7 +2769,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	ciudad_display_list = createDL();
 
 	//NEW Iniciar variables de KeyFrames
-	for (int i = 0; i<MAX_FRAMES; i++)
+	for (int i = 0; i < MAX_FRAMES; i++)
 	{
 		KeyFrame[i].posX = 0;
 		KeyFrame[i].posY = 0;
@@ -2731,7 +2824,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPushMatrix();
 	glPushMatrix(); //Caja cielo
 	glDisable(GL_LIGHTING);
-	glTranslatef(0, 60 , 0);
+	glTranslatef(0, 60, 0);
 	fig1.skybox(180.0, 150.0, 180.0, text1.GLindex);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
@@ -2743,11 +2836,10 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glColor3f(1, 1, 1);
 	//glScalef(0.5, 0.5, 0.5);
 	//monito();
-
-
 	glCallList(ciudad_display_list);
 	glTranslatef(posX, posY, posZ);
 	glRotatef(giroMonito, 0, 1, 0);
+	monito();
 
 	glDisable(GL_COLOR_MATERIAL);
 	glPopMatrix();
@@ -2755,30 +2847,30 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 	glColor3f(1.0, 1.0, 1.0);
 
-//inicia montaña rusa
-glPushMatrix();
+	//inicia montaña rusa
+	glPushMatrix();
 
 
-tienda1();
+	tienda1();
 
-tienda2();
+	tienda2();
 
-baños();
+	baños();
 
-tienda3();
+	tienda3();
 
-glPopMatrix();
+	glPopMatrix();
 
-glPushMatrix();
-glTranslatef(0,0,-25);
-montana();
+	glPushMatrix();
+	glTranslatef(0, 0, -25);
+	montana();
 
-glPopMatrix();
+	glPopMatrix();
 
-glPushMatrix();
-glTranslatef(horizontal, vertical, profundidad);
-carrito();
-glPopMatrix();
+	glPushMatrix();
+	glTranslatef(horizontal, vertical, profundidad);
+	carrito();
+	glPopMatrix();
 
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
@@ -2805,8 +2897,8 @@ void animacion()
 	if (dwElapsedTime >= 30)
 	{
 		juego = (juego - 11) % 360;
-		
-		
+
+
 
 
 		dwLastUpdateTime = dwCurrentTime;
@@ -2815,22 +2907,22 @@ void animacion()
 	fig3.text_izq -= 0.001;
 	fig3.text_der -= 0.001;
 
-	if (fig3.text_izq<-1)
+	if (fig3.text_izq < -1)
 		fig3.text_izq = 0;
-	if (fig3.text_der<0)
+	if (fig3.text_der < 0)
 		fig3.text_der = 1;
 
 
 	//Movimiento del monito
-	
+
 
 	if (dwElapsedTime >= 30)
 	{
 		mundo = (mundo - 10) % 360;
 		dwLastUpdateTime = dwCurrentTime;
-		
 
-		
+
+
 	}
 
 	if (play)
@@ -2839,7 +2931,7 @@ void animacion()
 		if (i_curr_steps >= i_max_steps) //end of animation between frames?
 		{
 			playIndex++;
-			if (playIndex>FrameIndex - 2)	//end of total animation?
+			if (playIndex > FrameIndex - 2)	//end of total animation?
 			{
 				printf("termina anim\n");
 				playIndex = 0;
@@ -2857,14 +2949,14 @@ void animacion()
 				KeyFrame[playIndex].arribaInc = (KeyFrame[playIndex + 1].arriba - KeyFrame[playIndex].arriba) / i_max_steps;
 				KeyFrame[playIndex].horizontalInc = (KeyFrame[playIndex + 1].horizontal - KeyFrame[playIndex].horizontal) / i_max_steps;
 				KeyFrame[playIndex].verticalInc = (KeyFrame[playIndex + 1].vertical - KeyFrame[playIndex].vertical) / i_max_steps;
-				KeyFrame[playIndex].profundidadInc = (KeyFrame[playIndex + 1].profundidad- KeyFrame[playIndex].profundidad) / i_max_steps;
+				KeyFrame[playIndex].profundidadInc = (KeyFrame[playIndex + 1].profundidad - KeyFrame[playIndex].profundidad) / i_max_steps;
 				KeyFrame[playIndex].giroInc = (KeyFrame[playIndex + 1].giro - KeyFrame[playIndex].giro) / i_max_steps;
 				KeyFrame[playIndex].descensoInc = (KeyFrame[playIndex + 1].descenso - KeyFrame[playIndex].descenso) / i_max_steps;
 				KeyFrame[playIndex].horizontal2Inc = (KeyFrame[playIndex + 1].horizontal2 - KeyFrame[playIndex].horizontal2) / i_max_steps;
 				KeyFrame[playIndex].vertical2Inc = (KeyFrame[playIndex + 1].vertical2 - KeyFrame[playIndex].vertical2) / i_max_steps;
 				KeyFrame[playIndex].sigueInc = (KeyFrame[playIndex + 1].sigue - KeyFrame[playIndex].sigue) / i_max_steps;
 				KeyFrame[playIndex].giro2Inc = (KeyFrame[playIndex + 1].giro2 - KeyFrame[playIndex].giro2) / i_max_steps;
-
+				interpolation();
 			}
 		}
 		else
@@ -2882,9 +2974,16 @@ void animacion()
 			sigue += KeyFrame[playIndex].sigueInc;
 			giro2 += KeyFrame[playIndex].giro2Inc;
 
-
-
 			i_curr_steps++;
+
+			posX+=KeyFrame[playIndex].incX;
+			posY+=KeyFrame[playIndex].incY;
+			posZ+=KeyFrame[playIndex].incZ;
+
+			rotRodIzq+=KeyFrame[playIndex].rotInc;
+			giroMonito+=KeyFrame[playIndex].giroMonitoInc;
+
+			
 		}
 
 	}
@@ -2949,7 +3048,7 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 
 	case 'k':		//
 	case 'K':
-		if (FrameIndex<MAX_FRAMES)
+		if (FrameIndex < MAX_FRAMES)
 		{
 			saveFrame();
 		}
@@ -2964,14 +3063,14 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 			arriba = KeyFrame[0].arriba;
 			horizontal = KeyFrame[0].horizontal;
 			vertical = KeyFrame[0].vertical;
-		    profundidad = KeyFrame[0].profundidad;
+			profundidad = KeyFrame[0].profundidad;
 			giro = KeyFrame[0].giro;
 			descenso = KeyFrame[0].descenso;
 			horizontal2 = KeyFrame[0].horizontal2;
 			vertical2 = KeyFrame[0].vertical2;
 			sigue = KeyFrame[0].sigue;
 			giro2 = KeyFrame[0].giro2;
-			
+
 
 			//First Interpolation
 
@@ -3115,14 +3214,14 @@ void menuKeyFrame(int id)
 	switch (id)
 	{
 	case 0:	//Save KeyFrame
-		if (FrameIndex<MAX_FRAMES)
+		if (FrameIndex < MAX_FRAMES)
 		{
 			saveFrame();
 		}
 		break;
 
 	case 1:	//Play animation
-		if (play == false && FrameIndex >1)
+		if (play == false && FrameIndex > 1)
 		{
 
 			resetElements();
