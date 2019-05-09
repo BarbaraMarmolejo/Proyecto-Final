@@ -39,6 +39,8 @@ float vertical2 = 1.24;
 float descenso = -25;
 float sigue = 0;
 
+bool rot_rueda = true;
+
 
 typedef struct _frame
 {
@@ -2568,6 +2570,309 @@ GLuint createDL()
 	return(ciudadDL);
 }
 
+void rueda_fortuna(void) {
+	glPushMatrix();//rueda
+	glScalef(2,2,2);
+	glTranslatef(0.0,0.0,35);
+	glPushMatrix();//centro_rueda
+			glTranslatef(0.0, 7.0,1.5);
+			glRotatef(90,0,1,0);
+			if (rot_rueda)
+			{
+				glRotatef(juego, 1, 0, 0);
+			}
+			glScalef(3, .5, .5);
+			fig3.prisma2(text7.GLindex, text7.GLindex);
+			glScalef(.333,2,2);
+			glRotatef(-90, 0, 1, 0);
+			glTranslatef(0.0, -7.0, -1.5);
+			glPushMatrix();//rueda1
+				glPushMatrix();
+					glTranslatef(0.0,3.0, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(115, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();//POSTE_UNION_RUEDAS
+					glTranslatef(4.5, 7.0, 1.5);
+					glRotatef(90, 0, 1, 0);
+					glScalef(3, .5, .5);
+					if (rot_rueda)
+					{
+						glRotatef(-juego, 1, 0, 0);
+					}
+					
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					glScalef(.333, 2, 2);
+					glRotatef(-90, 0, 1, 0);
+					glTranslatef(0.0,-0.5,0.0);
+					glScalef(.1, 1, .1);
+					fig3.prisma2(text7.GLindex, text12.GLindex);
+					glScalef(10, 1, 10);
+					glTranslatef(0.0,-1.0,0.0);
+					glScalef(1.5, 1, 1);
+					fig8.prisma2(text25.GLindex, text13.GLindex);
+
+
+				glPopMatrix();//fIN_POSTE_UNION_RUEDAS
+
+				glPushMatrix();
+					glTranslatef(3.5, 5.0, 0.0);
+					glRotatef(60,0.0,0.0,1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(115, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+
+				glPopMatrix();
+
+				glPushMatrix();//POSTE_UNION_RUEDAS
+					glTranslatef(2.3, 11.0, 1.5);
+					glRotatef(90, 0, 1, 0);
+					glScalef(3, .5, .5);
+					if (rot_rueda)
+					{
+						glRotatef(-juego, 1, 0, 0);
+					}
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					glScalef(.333, 2, 2);
+					glRotatef(-90, 0, 1, 0);
+					glTranslatef(0.0, -0.5, 0.0);
+					glScalef(.1, 1, .1);
+					fig3.prisma2(text7.GLindex, text12.GLindex);
+					glScalef(10, 1, 10);
+					glTranslatef(0.0, -1.0, 0.0);
+					glScalef(1.5, 1, 1);
+					fig8.prisma2(text25.GLindex, text13.GLindex);
+				glPopMatrix();//fIN_POSTE_UNION_RUEDAS
+
+				glPushMatrix();
+					glTranslatef(3.5, 9.0, 0.0);
+					glRotatef(120, 0.0, 0.0, 1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(115, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();//POSTE_UNION_RUEDAS
+					glTranslatef(-2.3, 11.0, 1.5);
+					glRotatef(90, 0, 1, 0);
+					glScalef(3, .5, .5);
+					if (rot_rueda)
+					{
+						glRotatef(-juego, 1, 0, 0);
+					}
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					glScalef(.333, 2, 2);
+					glRotatef(-90, 0, 1, 0);
+					glTranslatef(0.0, -0.5, 0.0);
+					glScalef(.1, 1, .1);
+					fig3.prisma2(text7.GLindex, text12.GLindex);
+					glScalef(10, 1, 10);
+					glTranslatef(0.0, -1.0, 0.0);
+					glScalef(1.5, 1, 1);
+					fig8.prisma2(text25.GLindex, text13.GLindex);
+				glPopMatrix();//fIN_POSTE_UNION_RUEDAS
+
+				glPushMatrix();
+					glTranslatef(0.0, 11.0, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(-65, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();//POSTE_UNION_RUEDAS
+					glTranslatef(-4.5, 7.0, 1.5);
+					glRotatef(90, 0, 1, 0);
+					glScalef(3, .5, .5);
+					if (rot_rueda)
+					{
+						glRotatef(-juego, 1, 0, 0);
+					}
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					glScalef(.333, 2, 2);
+					glRotatef(-90, 0, 1, 0);
+					glTranslatef(0.0, -0.5, 0.0);
+					glScalef(.1, 1, .1);
+					fig3.prisma2(text7.GLindex, text12.GLindex);
+					glScalef(10, 1, 10);
+					glTranslatef(0.0, -1.0, 0.0);
+					glScalef(1.5, 1, 1);
+					fig8.prisma2(text25.GLindex, text13.GLindex);
+				glPopMatrix();//fIN_POSTE_UNION_RUEDAS
+
+				glPushMatrix();
+					glTranslatef(-3.5, 9.0, 0.0);
+					glRotatef(60, 0.0, 0.0, 1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(-65, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();//POSTE_UNION_RUEDAS
+					glTranslatef(-2.3, 3.0, 1.5);
+					glRotatef(90, 0, 1, 0);
+					glScalef(3, .5, .5);
+					if (rot_rueda)
+					{
+						glRotatef(-juego, 1, 0, 0);
+					}
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					glScalef(.333, 2, 2);
+					glRotatef(-90, 0, 1, 0);
+					glTranslatef(0.0, -0.5, 0.0);
+					glScalef(.1, 1, .1);
+					fig3.prisma2(text7.GLindex, text12.GLindex);
+					glScalef(10, 1, 10);
+					glTranslatef(0.0, -1.0, 0.0);
+					glScalef(1.5, 1, 1);
+					fig8.prisma2(text25.GLindex, text13.GLindex);
+				glPopMatrix();//fIN_POSTE_UNION_RUEDAS
+
+				glPushMatrix();
+					glTranslatef(-3.5, 5.0, 0.0);
+					glRotatef(120, 0.0, 0.0, 1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(-65, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();//POSTE_UNION_RUEDAS
+					glTranslatef(2.3, 3.0, 1.5);
+					glRotatef(90, 0, 1, 0);
+					glScalef(3, .5, .5);
+					if (rot_rueda)
+					{
+						glRotatef(-juego, 1, 0, 0);
+					}
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					glScalef(.333, 2, 2);
+					glRotatef(-90, 0, 1, 0);
+					glTranslatef(0.0, -0.5, 0.0);
+					glScalef(.1, 1, .1);
+					fig3.prisma2(text7.GLindex, text12.GLindex);
+					glScalef(10, 1, 10);
+					glTranslatef(0.0, -1.0, 0.0);
+					glScalef(1.5, 1, 1);
+					fig8.prisma2(text25.GLindex, text13.GLindex);
+				glPopMatrix();//fIN_POSTE_UNION_RUEDAS
+
+			glPopMatrix();//Rueda1
+	
+			glPushMatrix();//rueda2
+				glTranslatef(0.0,0.0,3.0);
+				glPushMatrix();
+					glTranslatef(0.0, 3.0, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(115, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();
+					glTranslatef(3.5, 5.0, 0.0);
+					glRotatef(60, 0.0, 0.0, 1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(115, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();
+					glTranslatef(3.5, 9.0, 0.0);
+					glRotatef(120, 0.0, 0.0, 1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(115, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();
+					glTranslatef(0.0, 11.0, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(-65, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();
+					glTranslatef(-3.5, 9.0, 0.0);
+					glRotatef(60, 0.0, 0.0, 1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(-65, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+
+				glPushMatrix();
+					glTranslatef(-3.5, 5.0, 0.0);
+					glRotatef(120, 0.0, 0.0, 1.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+					//DIAGONAL
+					glScalef(.25, 2, 10);
+					glRotatef(-65, 0.0, 0.0, 1.0);
+					glTranslatef(1.6, -1.7, 0.0);
+					glScalef(5, .5, .1);
+					fig3.prisma2(text7.GLindex, text7.GLindex);
+				glPopMatrix();
+			glPopMatrix();//Rueda2
+	glPopMatrix();//centro_rueda
+		glTranslatef(0, 0.0, 1.5);
+		glScalef(.5, 14, .5);
+		fig3.prisma2(text7.GLindex, text7.GLindex);
+	glPopMatrix();//fin_rueda
+}
 void InitGL(GLvoid)     // Inicializamos parametros
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Negro de fondo	
@@ -2829,6 +3134,9 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
 
+	glPushMatrix();//rueda
+	rueda_fortuna();
+	glPopMatrix();//fin rueda
 
 
 	glPushMatrix();
@@ -2896,7 +3204,7 @@ void animacion()
 
 	if (dwElapsedTime >= 30)
 	{
-		juego = (juego - 11) % 360;
+		juego = (juego - 1) % 360;
 
 
 
@@ -2974,7 +3282,7 @@ void animacion()
 			sigue += KeyFrame[playIndex].sigueInc;
 			giro2 += KeyFrame[playIndex].giro2Inc;
 
-			i_curr_steps++;
+			
 
 			posX+=KeyFrame[playIndex].incX;
 			posY+=KeyFrame[playIndex].incY;
@@ -2983,6 +3291,7 @@ void animacion()
 			rotRodIzq+=KeyFrame[playIndex].rotInc;
 			giroMonito+=KeyFrame[playIndex].giroMonitoInc;
 
+			i_curr_steps++;
 			
 		}
 
@@ -3158,7 +3467,11 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 	case 'I':
 		rotBrIzq--;
 		break;
+	case 'm':
 
+	case 'M':
+		rot_rueda= !rot_rueda;
+		break;
 	case 'o':
 		rotBrDer++;
 		break;
@@ -3172,6 +3485,8 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 	default:        // Cualquier otra
 		break;
 	}
+	
+
 
 	glutPostRedisplay();
 }
